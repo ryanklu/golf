@@ -2,19 +2,59 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>AngularJS and PHP</title>
+	<title>Golf Courses</title>
 	<style>
+		table {
+			border-collapse: collapse;
+		}
+		th,td {
+			border: 2px #ddd solid;
+			padding: 10px;
+		}
 	</style>
 </head>
 <body ng-app="golfcourses" class="ng-cloak">
-	<h1>Fun with Countries</h1>
+	<h1>Top 100 Golf Courses in America</h1>
 
 	<div ng-controller="CourseController as courseCTRL">
-		<ol>
-			<li ng-repeat="c in courseCTRL.courses | filter:search">
-				{{c.CourseName}}
-			</li>
-		</ol>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Architects</th>
+					<th>Address</th>
+					<th>Latitude</th>
+					<th>Longitude</th>
+					<th>Par</th>
+					<th>Holes</th>
+					<th>Year</th>
+					<th>Type</th>
+					<th>Guest Policy</th>
+					<th>Phone</th>
+					<th>Website</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="c in courseCTRL.courses | filter:search">
+					<td>{{c.cCourseNumber}}</td>
+					<td>{{c.CourseName}}</td>
+					<td>{{c.Architects}}</td>
+					<td>{{c.StreetAddress}}, {{c.City}}</td>
+					<td>{{c.Latitude}}</td>
+					<td>{{c.Longitude}}</td>
+					<td>{{c.Par}}</td>
+					<td>{{c.Holes}}</td>
+					<td>{{c.YearBuiltFounded}}</td>
+					<td>{{c.StatusPublicPrivateResort}}</td>
+					<td>{{c.GuestPolicy}}</td>
+					<td>{{c.PhoneNumber}}</td>
+					<td>{{c.URL}}</td>
+					<td>{{c.EmailAddress}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 	<script src="course.js"></script>
