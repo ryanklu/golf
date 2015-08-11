@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS and PHP</title>
+	<style>
+	</style>
+</head>
+<body ng-app="golfcourses" class="ng-cloak">
+	<h1>Fun with Countries</h1>
+
+	<div ng-controller="CourseController as courseCTRL">
+		<ol>
+			<li ng-repeat="c in courseCTRL.courses | filter:search">
+				{{c.CourseName}}
+			</li>
+		</ol>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<script src="course.js"></script>
+</body>
+</html>
